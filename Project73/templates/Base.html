@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+  {% block title %}
+    <title>Give title</title>
+  {% endblock %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+<header style="text-align:center">
+  <h2>Furniturewala</h2>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link" href="{% url 'homepage' %}" style="color:white">Home</a>
+      <a class="nav-link" href="{% url 'addproduct' %}" style="color:white">Add Product</span></a>
+      <a class="nav-link" href="{% url 'showproduct' %}" style="color:white">Show Product</a>
+ </div>
+    </div>
+      {% if user.is_authenticated %}
+        <span class="header_text ml-auto">
+          <a class="nav-link" href="{% url 'logout' %}" style="color:white">Logout</a>
+        </span>
+      {% else %}
+        <a class="nav-link" href="{% url 'login' %}" style="color:white">Login</a>
+        <a class="nav-link" href="{% url 'register' %}" style="color:white">Register</a>
+      {% endif %}
+</nav>
+
+<!--<ul class="my_navbar">-->
+<!--  <li><a href="{% url 'homepage' %}"> Home</a></li>-->
+<!--  <li><a href="{% url 'addproduct' %}">Add Product </a></li>-->
+<!--  <li><a href="{% url 'showproduct' %}">Show Product </a></li>-->
+<!--</ul>-->
+
+<br><br><br>
+{% block content %}
+<h3>Write content </h3>
+{% endblock %}
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer style="text-align:center">
+  <h4>Copyright 2021, Designed by CYD</h4>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
