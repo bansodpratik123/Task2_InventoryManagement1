@@ -1,0 +1,47 @@
+{% extends 'InventoryManagement/Base.html' %}
+
+{% block title %}
+  <title>Homepage</title>
+{% endblock %}
+
+{% block content %}
+  <h1 style="text-align:center">ShowProduct</h1>
+<div>
+  <table class="table table-dark">
+    <tr>
+      <th>IOD</th>
+      <th>Name Of Product</th>
+      <th>Provider</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Amount</th>
+      <th>Stock</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+      <td>{{record.id}}</td>
+      <td>{{record.Name_of_Product}}</td>
+      <td>{{record.Provider}}</td>
+      <td>{{record.Date}}</td>
+      <td>{{record.Price}}</td>
+      <td>{{record.Quantity}}</td>
+      <td>{{record.Amount}}</td>
+      <td>{{record.Stock}}</td>
+      <td>
+        <a href="{% url 'updateproduct' record.id %}">
+        <input type="submit" value="Update">
+        </a>
+      </td>
+      <td>
+        <a href="{% url 'deleteproduct' record.id %}">
+        <input type="submit" value="Delete">
+          </a>
+      </td>
+    {% endfor %}
+    </tr>
+
+  </table>
+</div>
+{% endblock %}
+
